@@ -1,0 +1,248 @@
+/* 
+https://www.w3schools.com/css/css_positioning.asp
+Learned here how to keep things in place, so I could layer elements.
+*/
+
+/* the main element, position set to the bottom */
+#mainSection {
+    position: absolute;
+    z-index: -1;
+    height: 600px;
+    width: 650px;
+    border: 5px outset silver;
+    margin: 15px;
+    padding: 5px;
+    background-image: linear-gradient(to bottom right, blue, black);
+}
+
+/* Setting up the little Party header for the screen */
+#partyHeader {
+    margin-top: -25px;
+    border: 3px outset silver;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+    background-image: linear-gradient(to bottom right, blue, black);
+    width: fit-content;
+    height: 40px;
+    font-family: 'Squada One', cursive;
+    text-shadow: 5px 3px 7px black;
+}
+
+/* each character has their image given a border and spaced vertically */
+.character {
+    border: 3px outset silver;
+    display: block;
+    margin: 30px;
+    box-shadow: 6px 6px 7px black;
+}
+
+/* This sets up the options element that has the items, equipment and such selections */
+#firstOptions {
+    position: relative;
+    width: 250px;
+    height: 300px;
+    top: 30px;
+    left: 500px;
+    border: 3px outset silver;
+    background-image: linear-gradient(to bottom right, blue, black);
+}
+
+/* all the options have their color set and font selected */
+.optionItem {
+    color: white;
+    font-size: 24px;
+    padding-left: 30px;
+    font-family: 'Squada One', cursive;
+    text-shadow: 5px 3px 7px black;
+    line-height: 10px;
+}
+
+/* the item menu element, given its position overlapping the main element */
+#itemMenu {
+    position: absolute;
+    z-index: 1;
+    height: 550px;
+    width: 400px;
+    top: 50px;
+    left: 50px;
+    border: 3px outset silver;
+    background-image: linear-gradient(to bottom right, blue, black);
+}
+
+/* the item table itself is then given a font and text color */
+#itemTable {
+    margin: 10%;
+    border-collapse: collapse;
+    color: white;
+    font-family: 'Squada One', cursive;
+    font-size: larger;
+}
+
+/* table headers are aligned and a little border is placed under them */
+th {
+    text-align: left;
+    border-bottom: 1px solid white;
+    width: 90%;
+}
+
+.quantity {
+    text-align: left;
+}
+
+.item {
+    line-height: 25px;
+}
+
+/* formatting the equipment menu, same as the item menu */
+#equipMenu {
+    position: absolute;
+    z-index: 1;
+    height: 550px;
+    width: 400px;
+    top: 50px;
+    left: 50px;
+    border: 3px outset silver;
+    background-image: linear-gradient(to bottom right, blue, black);
+}
+
+/* then the text in that menu is given a font and color */
+#equipText {
+    color: white;
+    font-size: 24px;
+    padding-left: 30px;
+    font-family: 'Squada One', cursive;
+    text-shadow: 5px 3px 7px black;
+}
+
+/* 
+This formats the small element in the bottom right 
+which contains the time and gold
+*/
+#partyInfo {
+    border: 3px outset silver;
+    color: white;
+    position: absolute;
+    z-index: 0;
+    width: 200px;
+    height: 100px;
+    top: 400px;
+    left: 520px;
+    font-size: 22px;
+    font-family: 'Squada One', cursive;
+    text-shadow: 5px 3px 7px black;
+    background-image: linear-gradient(to bottom right, blue, black);
+}
+
+#middleChar {
+    margin-left: 50px;
+}
+
+body {
+    background-color: black;
+}
+
+#time {
+    padding-left: 15%;
+}
+
+#money {
+    padding-left: 15%;
+}
+
+#infoText {
+    padding-left: 15%;
+    padding-top: 5%;
+    line-height: 6px;
+}
+
+/* positioning for the health and mana bars for each character */
+#firstHP {
+    position: absolute;
+    border: 1px outset silver;
+    height: 30px;
+    width: 200px;
+    left: 38%;
+    top: 16%;
+}
+
+#firstMP {
+    position: absolute;
+    border: 1px outset silver;
+    height: 30px;
+    width: 200px;
+    left: 38%;
+    top: 24%; 
+}
+
+#secondHP {
+    position: absolute;
+    border: 1px outset silver;
+    height: 30px;
+    width: 200px;
+    left: 38%;
+    top: 46%;
+}
+
+#secondMP {
+    position: absolute;
+    border: 1px outset silver;
+    height: 30px;
+    width: 200px;
+    left: 38%;
+    top: 54%;
+}
+
+#thirdHP {
+    position: absolute;
+    border: 1px outset silver;
+    height: 30px;
+    width: 200px;
+    left: 38%;
+    top: 76%;
+}
+
+#thirdMP {
+    position: absolute;
+    border: 1px outset silver;
+    height: 30px;
+    width: 200px;
+    left: 38%;
+    top: 84%;
+}
+
+/* and then each characters names are placed above the bars. */
+#firstCharacter {
+    position: absolute;
+    left: 38%;
+    top: 8%;
+    color: white;
+    font-family: 'Squada One', cursive;
+    font-size: larger;
+    text-shadow: 5px 3px 7px black;
+}
+
+#secondCharacter {
+    position: absolute;
+    left: 38%;
+    top: 38%;
+    color: white;
+    font-family: 'Squada One', cursive;
+    font-size: larger;
+    text-shadow: 5px 3px 7px black;
+}
+
+#thirdCharacter {
+    position: absolute;
+    left: 38%;
+    top: 68%;
+    color: white;
+    font-family: 'Squada One', cursive;
+    font-size: larger;
+    text-shadow: 5px 3px 7px black;
+}
+
+/* and all the bars are given a lil drop shadow. */
+.statBar {
+    box-shadow: 6px 6px 7px black;
+}

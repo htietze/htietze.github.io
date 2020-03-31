@@ -1,0 +1,1 @@
+Hugh TietzeVue.js Question 2This error message means the variable that was used in the html section of the Vue app hadn’t been defined in the script. To fix this, you have to make sure all of the variables that are used in the html section are also defined in the script.

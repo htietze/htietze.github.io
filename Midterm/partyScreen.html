@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta charset="UTF-8">
+        <title>Menu</title>
+        <link href="https://fonts.googleapis.com/css?family=Squada+One&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="https://unpkg.com/vue@2.6.7/dist/vue.js"></script>
+        <script async defer src='partyScreen.js'></script>
+
+    </head>
+
+    <body>
+        <!-- I based the screen off one of the Final Fantasy games, 
+            and used pics my brother had taken of some of our pets -->
+        <div id='app'>
+            <div id='mainSection'>
+                <h1 id='partyHeader'>Party</h1>
+
+                <img src="charlie.jpeg"
+                    class="character"
+                    width=150>
+                <p id='firstCharacter'>Charlie</p>
+                <canvas class='statBar' id='firstHP' height='30' width='200'></canvas>
+                <canvas class='statBar' id='firstMP' height='30' width='200'></canvas>
+
+                <img src="greta.jpg"
+                    class="character"
+                    id="middleChar"
+                    width=150>
+                <p id='secondCharacter'>Greta</p>
+                <canvas class='statBar' id='secondHP' height='30' width='200'></canvas>
+                <canvas class='statBar' id='secondMP' height='30' width='200'></canvas>
+
+                <img src="oscar.jpg"
+                    class="character"
+                    width=150>
+                <p id='thirdCharacter'>Oscar</p>
+                <canvas class='statBar' id='thirdHP' height='30' width='200'></canvas>
+                <canvas class='statBar' id='thirdMP' height='30' width='200'></canvas>
+    
+            </div>
+
+            <div id='firstOptions'>
+                <p class='optionItem' v-on:click='items'>Items</p>
+                <p class='optionItem' v-on:click='equip'>Equip</p>
+                <p class='optionItem' v-on:click='order'>Order</p>
+                <br> <!-- Can replace with new options later, if wanted -->
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <p class='optionItem' v-on:click='quit'>Quit</p>
+            </div>
+
+            <div id='popupMenus'>
+                <div id='itemMenu' v-if='itemDisplay'>
+                    <table id='itemTable'>
+                        <tr><th>Items</th><th class='quantity'>Amount</th></tr>
+                        <tr class='item'><td>Potion</td><td class='quantity'>{{ potionCount }}</td></tr>
+                        <tr v-for='item in rowData' class='item'>
+                            <td>{{ item.itemName }}</td>
+                            <td class='quantity'>{{ item.itemAmount }}</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div id='equipMenu' v-if='equipDisplay'>
+                    <p id='equipText'>Ya got nothin...</p>
+                </div>
+            </div>
+        </div>
+
+        <div id='partyInfo'>
+            <div id='infoText'>
+                <p>Time<span id='time'></span></p>
+                <p>Gold<span id='money'></span></p>
+            </div>
+        </div>
+
+    </body>
+</html>

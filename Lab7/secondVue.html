@@ -1,0 +1,34 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+    <div id="app">
+    <h1>Hello Vue!</h1>
+    <label for='name'>Please enter your name: </label>
+    <input v-model='name' id='name'>
+    <p v-if='name'>
+        Your name is {{ name }}
+    </p>
+    <br>
+    <button v-on:click='clear'>Clear</button>
+    </div>
+
+    <script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            name: '',
+        },
+        methods: {
+            clear: function() {
+                this.name = ''
+            }
+        }
+    })
+
+    </script>
+
+    <style>
+        body{
+            background: lightskyblue
+        }
+    </style>
+</body>
