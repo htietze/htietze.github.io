@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+            crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+
+    </head>
+
+    <body class="m-3">
+        <h3>HTML Conference Response Form</h3>
+        <form>
+            <label for="name">Name</label>
+            <input name="name" id="name" type="text" maxlength="70" required>
+            <br>
+            <label for="password">Password</label>
+            <input name="password" id="password" type="password" required>
+            <br>
+            <label for="email">Email</label>
+            <input name="email" id="email" type="email" required>
+            <br>
+            <select name="size" required>
+                <label for="size">Tshirt size</label>
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+            </select>
+            <br>
+            <label for="dob">Date of Birth</label>
+            <input name="dob" id="dob" type="date" required>
+            <br>
+            <p>
+            Would you like to receive sponsor emails?
+            <div required>
+                <label for="yes">Yes</label>
+                <input name="receive" id="yes" type="radio">
+                <label for="no">No</label>
+                <input name="receive" id="no" type="radio" checked>
+            </div>
+            </p>
+            <p>
+            Please select the sessions you are attending:
+            <br>
+            <label for="morning">Morning session</label>
+            <input name="morning" id="morning" type="checkbox">
+            <br>
+            <label for="evening">Evening session</label>
+            <input name="evening" id="evening" type="checkbox">
+            </p>
+            <label for="requests">Special requests</label>
+            <br>
+            <textarea name="requests" id="requests" rows="7" col="70"></textarea>
+            <br>
+            <input type="submit">
+        </form>
+    </body>
+
+</html>

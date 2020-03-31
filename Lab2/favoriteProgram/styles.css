@@ -1,0 +1,9 @@
+.jumbotron{
+    background-color: orangered;
+    text-align: center;
+}
+
+#code{
+    background-color: rgb(199, 199, 199);
+    border: 5px groove rgba(255, 0, 0, 0.637);
+}

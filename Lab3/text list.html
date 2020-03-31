@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Input</title>
+</head>
+<body>
+
+    <p>Enter some text to add to the list</p>
+    <input type='text' id='textEntered'>
+    <button id='addText'>Add</button>
+    <br>
+    <button id="clear">Clear</button>
+
+    <ul id="text-list">
+    </ul>
+
+<script>
+
+    // selecting the needed ids from the html, initializing buttons and reading in the
+    // user input.
+    let textToAdd = document.querySelector('#textEntered')
+    let addButton = document.querySelector('#addText')
+    let clearButton = document.querySelector('#clear')
+    let list = document.querySelector('#text-list')
+
+    addButton.addEventListener('click', function() {
+        // taking in the text from the user input and saving it for just the function
+        let text = textToAdd.value
+        // if statements for validation, making sure the user actually enters in something
+        // and that it's less than 50 characters.
+        if (text.length > 0) {
+            if (text.length > 50) {
+                alert('The text cannot be longer than 50 characters')
+            } else {
+                // If those pass, then the number of list items is checked, has to be lower than 10
+                if (list.children.length < 10) {
+                    // Then the new list item is created, the value is plugged in, and 
+                    // it's appended to the list, then clears the text entry.
+                    let listItem = document.createElement('li')
+                    listItem.innerHTML = text;
+                    list.appendChild(listItem)
+                    textToAdd.value = ''
+                }
+            }
+        }
+    })
+    // simple clear button, just replacing the html of the list element with a blank space.
+    clearButton.addEventListener('click', function() {
+        list.innerHTML = ''
+    })
+
+</script>
+
+</body>
+</html>

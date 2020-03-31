@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Club Membership</title>
+
+  <style>
+      
+      .selected {
+        text-decoration: line-through ;
+        font-style: italic;
+        color: gray;
+      }
+
+      input {
+          width: 100%;
+          padding: 5px;
+          margin: 5px 5px 5px 0px;
+          box-sizing: border-box;
+      }
+
+  </style>
+
+</head>
+<body>
+
+    <h1>Student Club Roster</h1>
+
+    <h2>Add Students</h2>
+
+    <label for="student-name">Student Name</label><input id="student-name" name="student-name">
+    <br>
+    <label for="student-id">Student ID</label><input id="student-id" name="student-id">
+    <br>
+    <label for="student-gpa">Student GPA</label><input id="student-gpa" name="student-gpa" type="number">
+    <br>
+    <button id="add-student">Add Student</button>    
+
+    <h2>Student List</h2>
+
+    <p>There are 
+        <span id="student-count">
+          <!-- use JavaScript to count the number of students, and show here -->
+        </span> 
+    student(s) in the club.</p>
+    
+
+    <ul id="student-list">
+        <!-- use JavaScript to create li elements  -->
+    </ul>
+
+    <button id="remove-selected-students">Remove selected students</button>
+
+<script>
+    // initializing the counter element in the script, setting it to 0 at the beginning
+    let count = document.querySelector('#student-count')
+    count.innerHTML = 0
+
+    // Initializing the user input elements, to pull values from later, as well as bringing in
+    // the list itself for adding items to. 
+    let addButton = document.querySelector('#add-student')
+    let list = document.querySelector('#student-list')
+    let studentName = document.querySelector('#student-name')
+    let studentID = document.querySelector('#student-id')
+    let studentGPA = document.querySelector('#student-gpa')
+
+    addButton.addEventListener('click', function(){
+        // Setting up all the variables for the checks before the add button can add
+        // a student to the list:
+        let name = studentName.value
+        let id = studentID.value
+        let gpa = studentGPA.value
+        let nameAlert = 'Please enter a student name\n'
+        let idAlert = 'Please enter the student ID\n'
+        let gpaAlert = 'Please enter a GPA between 0 and 4'
+        let fullAlert = ''
+
+        // Checking to see if there are values in the name, id and gpa slots
+        if (name.length === 0) {
+            fullAlert = fullAlert + nameAlert
+        }
+        if (id.length === 0) {
+            fullAlert = fullAlert + idAlert
+        }
+        if (gpa.length === 0) {
+            fullAlert = fullAlert + gpaAlert
+            // Also checking if that gpa is between 0 and 4
+        } else if (gpa > 4 || gpa < 0) {
+            fullAlert = fullAlert + gpaAlert
+        }
+        // if there were parts added to the alert from any of the checks, then it's displayed and
+        // nothing happens after.
+        if (fullAlert.length > 0) {
+            alert(`${fullAlert}`)
+        } else {
+            // If the value set passes, then a new list item is made
+            let newStudent = document.createElement('li')
+            // and a template string is created using them
+            let studentString = `${name}, id: ${id}, GPA: ${gpa}`
+            // then the new list item gets the string input and a mouse listener as well
+            newStudent.innerHTML = studentString
+            newStudent.addEventListener('click', function() {
+                // the listener checks to see if the list item has a class assigned, if not:
+                // it adds the class and changes the text formatting. If it does: the 
+                // class is removed and the formatting is reset.
+                if (newStudent.classList.contains('selected')) {
+                    newStudent.innerHTML = studentString
+                    newStudent.classList.remove('selected')
+                } else {
+                    newStudent.innerHTML = studentString.strike().italics()
+                    newStudent.classList.add('selected')
+                }
+            })
+            // then finally that list item is appended to the list
+            // and the count is checked again
+            list.appendChild(newStudent)
+            count.innerHTML = list.children.length
+        }
+        // at the very end, the user input values are cleared.
+        studentName.value = ''
+        studentID.value = ''
+        studentGPA.value = ''
+    })
+
+    // initializing the remove button with its id
+    let removeButton = document.querySelector('#remove-selected-students')
+    // simpler button, this selects all of the elements with the selected class
+    // which was added by the mouse listener
+    removeButton.addEventListener('click', function() {
+        let itemsToRemove = document.querySelectorAll('.selected')
+        // then it loops through them and removes each list item
+        itemsToRemove.forEach( function(li) {
+            list.removeChild(li)
+        })
+        // then the count is run again to update if a student was removed.
+        count.innerHTML = list.children.length
+    })
+
+</script>
+
+</body>
+</html>

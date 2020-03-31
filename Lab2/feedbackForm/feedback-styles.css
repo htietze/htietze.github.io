@@ -1,0 +1,28 @@
+body{
+    background-image: repeating-radial-gradient(blue, green 15%);
+    color: white;
+    font-family: 'Amarante', cursive;
+}
+
+.jumbotron{
+    background-image: linear-gradient(120deg, red, orange);
+    color: rgb(255, 175, 70);
+    height: 50px;
+    text-align: center;
+}
+
+#name{
+    background-image: linear-gradient(150deg, red, orange);
+}
+
+#email{
+    background-image: linear-gradient(90deg, red, orange);
+}
+
+#comment{
+    background-image: linear-gradient(60deg, red, orange);
+}
+
+#submit{
+    font-family: fantasy;
+}

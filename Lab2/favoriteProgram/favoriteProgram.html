@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <title>Favorite Program</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+
+    </head>
+
+    <body class="m-5">
+
+        <div class="jumbotron">
+            <h1>Recipe Finder!</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-md-5">
+                <p>
+                    My favorite program so far is made in Java. It's a program that searches an API 
+                    for recipes using entered ingredients, then it can bring the user the instructions 
+                    as well as a list of ingredients.
+                </p>
+            
+
+                <p> Here are some code samples:
+            </div>
+
+            <div class="col-md-5" id="code">
+                <pre><code>
+                    public void deleteIngredient() {
+                        int selectedIndex = ingredientList.getSelectedIndex();
+                        if (selectedIndex != -1) {
+                            ingredientListModel.remove(selectedIndex);
+                        }
+                    }
+                </code></pre>
+
+                <pre><code>
+                    Recipes[] recipeIngredients = Unirest.get(url)
+                        .asObject(Recipes[].class)
+                        .getBody();
+                    return recipeIngredients;
+                </code></pre>
+
+                <pre><code>
+                    public void displayMatchingRecipes(Recipes[] recipes, String ingredients) {
+                        if (recipes == null || recipes.length == 0) {
+                            matchingRecipesJTableModel.getDataVector().clear();
+                            ingredientListModel.clear();
+                            recipesDisplayed.setText("No recipes found containing: " + ingredients);
+                        }    
+                </code></pre>
+            </div>
+            
+            <p>
+                A link to the project repository on github! <br>
+                <a href="https://github.com/htietze/JavaFinalProject">Final Project Repository</a>
+            </p>
+
+            <p>
+                <img src="foundRecipes.png"
+                    height="300px"
+                    alt="Recipe Finder bringing back a list of recipes">
+                <img src="instructions.png" 
+                    height="300px"
+                    alt="The program showing the instructions for a recipe">
+
+            </p>
+        </div>
+
+    </body>
+
+</html>

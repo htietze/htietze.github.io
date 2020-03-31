@@ -1,0 +1,17 @@
+#test-only{
+    color: rebeccapurple;
+    border: 5px solid darkblue;
+    padding: 5px;
+    margin: 30px;
+    text-align: left;
+    display: block;
+}
+
+#real-alert{
+    color: red;
+    border: 5px solid lightgreen;
+    padding: 5px;
+    margin: 30px;
+    text-align: right;
+    display: block;
+}

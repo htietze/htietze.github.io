@@ -1,0 +1,52 @@
+#page-title{
+    font-style: italic;
+}
+
+.favorite-section{
+    border: 5px outset darkcyan;
+    margin: 5px;
+    padding: 5px;
+    background-color: lightseagreen;
+}
+
+.section-header{
+    font-style: italic;
+    color: blue;
+}
+
+body{
+    background-color: turquoise;
+}
+
+#favorite-movie-title{
+    font-style: italic;
+    color: darkgreen;
+}
+
+#favorite-music-name{
+    font-weight: bold;
+    color: darkgreen;
+}
+
+#most-favorite-food{
+    font-style: italic;
+}
+
+.favorite-image{
+    border-radius: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th{
+    color: darkred;
+}
+
+td{
+    color: red;
+}
+
+table{
+    border: 5px solid pink;
+}

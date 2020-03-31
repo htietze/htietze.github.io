@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Tree Order Form</title>
+
+  <style>
+      
+      input, select {
+          width: 100%;
+          padding: 5px;
+          margin: 5px 5px 5px 0px;
+          box-sizing: border-box;
+      }
+
+  </style>
+
+</head>
+<body>
+    <!-- added a div to shrink things down -->
+    <div>
+        <h1>Minnesota Tree Order Form</h1>
+
+        <p>Enter information to order your tree. All fields are required.</p>
+
+        <h2>Order Information</h2>
+
+        <label for="homeowner-name">Homeowner Name</label><input id="homeowner-name" name="homeowner-name">
+        <br>
+        <label for="homeowner-house-number">House Number</label><input id="homeowner-house-number" name="homeowner-house-number">
+        <br>
+        <label for="homeowner-street-name">Street Name</label><input id="homeowner-street-name" name="homeowner-street-name">
+        <br>
+        <label for="city">City</label><input id="city" name="city"> 
+        <br>
+        <!-- All orders must be for Minnesota, so this input is not editable -->
+        <label for="state">State</label><input id="state" name="state" value="Minnesota" disabled> 
+        <br>
+        <label for="zipcode">Zip Code</label><input id="zipcode" name="zipcode">
+        <br>
+
+        <label for="tree-type">Tree Type</label>
+        <select id="tree-type">
+            <option disabled selected value=""> Select a tree </option>  <!-- Unselectable message shown. Since this will be required, it forces the user to actually pick a tree, not just click submit for the default first option -->
+            <option name="tree-type">Lilac</option>
+            <option name="tree-type">Maple</option>
+            <option name="tree-type">Oak</option>
+        </select>
+        <br>
+
+        <button id="submit-order">Submit Order</button>    
+
+        <h2>Order Summary</h2>
+
+        <p id="order-summary">
+            <!-- Use JavaScript to display the order information, 
+                if all the required information is entered  -->
+        </p>
+    </div>
+
+<script>
+
+    let homeownerNameInput = document.querySelector('#homeowner-name')
+    let homeownerHouseNumberInput = document.querySelector('#homeowner-house-number')
+    let homeownerStreetNameInput = document.querySelector('#homeowner-street-name')
+    let treeTypeSelect = document.querySelector('#tree-type')
+
+    // TODO create a variable for city input element
+    let cityInput = document.querySelector('#city')
+    // TODO create a variable for zip code input element
+    let zipInput = document.querySelector('#zipcode')
+    
+    let submitButton = document.querySelector('#submit-order')
+
+    let orderSummaryParagraph = document.querySelector('#order-summary')
+
+    submitButton.addEventListener('click', function() {
+        // Could these be moved out of the listener? Maybe. I don't know exactly. broke last time I tried something like that.
+        let name = homeownerNameInput.value 
+        let houseNumber = homeownerHouseNumberInput.value
+        let streetName = homeownerStreetNameInput.value
+        let treeType = treeTypeSelect.value
+        let cityName = cityInput.value
+        let zip = zipInput.value
+
+        let errors = []
+        // starting things off by checking if the name value is empty (false), if so, appending to the errors array
+        if (!name) {
+            errors.push('Please enter a name')
+        }
+        // This one is a bit harder, checks that it's not empty but also that the parseInt of the house number doesn't
+        // result in NaN (not a number), since we want house numbers to be *numbers*
+        // figured there would be a parseInt function, but then had to read up a bit on what you do with a NaN result
+        if (!houseNumber || isNaN(parseInt(houseNumber))) {
+            errors.push('Please enter a house number')
+        }
+        // then street and city names..
+        if (!streetName) {
+            errors.push('Please enter a street name')
+        }
+        if (!cityName) {
+            errors.push('Please enter a city name')
+        }
+        // Checking the zipcode is the same as using that previous code from in class, plugging that zip into the function
+        if (!zip || !isMinnesotaZip(zip)) {
+            errors.push('Please enter a Minnesota zip code (55001 - 56763)')
+        }
+        // and treetype has to be selected because it defaults to nothing.
+        if (!treeType) {
+            errors.push('Please select a tree type')
+        }
+        
+        // if there end up being strings in the array, they're joined with new lines
+        // and then sent in an alert message, before ending the run
+        if (errors.length > 0) {
+            let errorMessage = errors.join('\n')
+            alert(errorMessage)
+            return 
+        }
+
+        // if it makes it through all that, then the order is confirmed, displaying the name, address, and tree type in a template string.
+        let string = `Order Confirmed. Customer: ${name}. Address: ${houseNumber} ${streetName} ${cityName},
+            MN ${zip}. Tree: ${treeType}`
+        orderSummaryParagraph.innerHTML = string
+    })
+
+    // the lil function for checking the zip code. just has to be between the numbers to return true
+    function isMinnesotaZip(code) {
+        if (code >= 55001 && code <= 56763) {
+            return true
+        }
+        return false
+    }
+
+</script>
+
+</body>
+</html>
+
+
